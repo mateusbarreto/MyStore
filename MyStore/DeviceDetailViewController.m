@@ -10,15 +10,6 @@
 
 @interface DeviceDetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *versionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *companyTexftField;
-
-
-- (IBAction)cancel:(id)sender;
-- (IBAction)save:(id)sender;
-
-
 @end
 
 @implementation DeviceDetailViewController
@@ -46,13 +37,32 @@
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delete];
-    if ([[delegate performSelector:@selector(managedObjectContext)]) {
+    id delegate = [[UIApplication sharedApplication]delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]){
         context = [delegate managedObjectContext];
     }
-- (IBAction)cancel:(id)sender {
+         return context;
 }
 
 - (IBAction)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    //Create a new managed object
+    NSManagedObjectContext *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device"inManagedObjectContext:context];
+    [newDevice setValue:self.nameTextField.text forKey:@"name"];
+    [newDevice setValue:self.versionTextField.text forKey:@"version"];
+    [newDevice setValue:self.companyTextField forKey:@"company"];
+    
+    NSError *error = nil;
+    //Save the object to persistent store
+    if (![context save:&error]){
+        NSLog(@"Can't Save! %@ %@",error, [error localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -73,12 +73,12 @@
                                     <navigationItem title="Title" id="feT-4L-Fd0">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="osp-R1-m02">
                                             <connections>
-                                                <action selector="cancel:" destination="efm-K6-DXg" id="3wc-D1-Em8"/>
+                                                <action selector="cancel:" destination="efm-K6-DXg" id="2BQ-Rr-rLU"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="R5z-M6-HzY">
                                             <connections>
-                                                <action selector="save:" destination="efm-K6-DXg" id="MoB-re-rRI"/>
+                                                <action selector="save:" destination="efm-K6-DXg" id="RrD-mk-icf"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -108,9 +108,10 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="companyTexftField" destination="yAr-22-vBI" id="YHp-s1-nNO"/>
-                        <outlet property="nameTextField" destination="Lx4-RP-3Ib" id="rE5-b4-pvs"/>
+                        <outlet property="companyTextField" destination="yAr-22-vBI" id="c6T-Cq-phA"/>
+                        <outlet property="nameTextField" destination="Lx4-RP-3Ib" id="pDk-NJ-iMM"/>
                         <outlet property="savef" destination="R5z-M6-HzY" id="Tgg-CC-Yqt"/>
-                        <outlet property="versionTextField" destination="C4C-qz-OZH" id="e2E-HQ-yGd"/>
+                        <outlet property="versionTextField" destination="C4C-qz-OZH" id="DDJ-8s-cyx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVO-XG-3N3" userLabel="First Responder" sceneMemberID="firstResponder"/>

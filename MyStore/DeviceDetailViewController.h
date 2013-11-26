@@ -10,4 +10,11 @@
 
 @interface DeviceDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *companyTextField;
+@property (weak, nonatomic) IBOutlet UITextField *versionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+
+- (IBAction)save:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 @end
